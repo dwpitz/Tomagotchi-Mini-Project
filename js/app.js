@@ -28,47 +28,53 @@ const lifeCycle = {
 		const jack = new Tomagatchi(name);
 		console.log(jack);
 		this.pet = jack;
+		this.startTimer()
 		this.printStats()
 	},
 
 	printStats: function(){
 		const $name = $('#title')
-		$name.text(`${lifeCycle.pet.name}'s Vitals`)
+		$name.text(`${this.pet.name}'s Vitals`)
 		const $age = $('#age')
-		$age.text(`AGE: ${lifeCycle.pet.age}`)
+		$age.text(`AGE: ${this.pet.age}`)
 		const $hunger = $('#hunger')
-		$hunger.text(`HUNGER: ${lifeCycle.pet.hunger}`)
+		$hunger.text(`HUNGER: ${this.pet.hunger}`)
 		const $sleep = $('#sleep')
-		$sleep.text(`SLEEP: ${lifeCycle.pet.sleepiness}`)
+		$sleep.text(`SLEEP: ${this.pet.sleepiness}`)
 		const $boredom = $('#boredom')
-		$boredom.text(`BOREDOM: ${lifeCycle.pet.boredom}`)
-		//this.startTimer()
+		$boredom.text(`BOREDOM: ${this.pet.boredom}`)
+		const $timer = $('#timer');
+		$timer.text(`TIMER: ${this.time}`)
 	},
 
 	//Maybe show jack here?
 
-	// startTimer() {
-	// 	const $timer = $('#timer');
-	// 	const tomagatchiTime = setInterval(() => {
-	// 		console.log(this.time++);
-	// 		//this.time++ 
-	// 		$timer.text(`TIMER: ${this.time}`)
-	// 	}, 1000);
-	// 	// if(tomagatchiTime % 2 === 0) {
-	// 	// 	this.lifeCycle.pet.age++
-	// 	// }
-	// }
+	startTimer() {
+		
+		const tomagatchiTime = setInterval(() => {
+
+			this.time++ 
+
+			if(this.time % 2 === 0){
+				this.pet.age++
+				console.log(this.pet.age);
+			}
+
+			this.printStats()
+
+		}, 1000);
+	}
 }
 
 
 //Create an Input to name the pet.
-  $('form').on('submit', (event) => {
+$('form').on('submit', (event) => {
   	event.preventDefault()
     console.log('clicked');  
     console.log( $('#input-box').val() );
     const name = $('#input-box').val();
     lifeCycle.giveBirth(name) 
-  }); 
+}); 
 		// //Jack Is Seen On The Screen
 		// // const $img = $('<img id="https://ewscripps.brightspotcdn.com/dims4/default/bb87e62/2147483647/strip/true/crop/1024x576+0+54/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F5b%2F65%2F389afca34a1dbc62ff618428e05d%2Fgettyimages-452924784.jpg"/>')
 		// // $('main').prepend$('img')
