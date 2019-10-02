@@ -32,35 +32,34 @@ const lifeCycle = {
 	},
 
 	printStats: function(){
+		const $name = $('#title')
+		$name.text(`${lifeCycle.pet.name}'s Vitals`)
+		const $age = $('#age')
+		$age.text(`AGE: ${lifeCycle.pet.age}`)
 		const $hunger = $('#hunger')
 		$hunger.text(`HUNGER: ${lifeCycle.pet.hunger}`)
 		const $sleep = $('#sleep')
 		$sleep.text(`SLEEP: ${lifeCycle.pet.sleepiness}`)
 		const $boredom = $('#boredom')
 		$boredom.text(`BOREDOM: ${lifeCycle.pet.boredom}`)
-		this.startTimer()
+		//this.startTimer()
 	},
-
 
 	//Maybe show jack here?
 
-	startTimer() {
-		const $timer = $('#timer');
-		const tomagatchiTime = setInterval(() => {
-			console.log(this.time++);
-			//this.time++ 
-			$timer.text(`TIMER: ${this.time}`)
-		}, 1000)
-		this.age()
-	},
-
-	age(){
-		console.log("this is where we figure out the age");
-	},
-
-
-
+	// startTimer() {
+	// 	const $timer = $('#timer');
+	// 	const tomagatchiTime = setInterval(() => {
+	// 		console.log(this.time++);
+	// 		//this.time++ 
+	// 		$timer.text(`TIMER: ${this.time}`)
+	// 	}, 1000);
+	// 	// if(tomagatchiTime % 2 === 0) {
+	// 	// 	this.lifeCycle.pet.age++
+	// 	// }
+	// }
 }
+
 
 //Create an Input to name the pet.
   $('form').on('submit', (event) => {
