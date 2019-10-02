@@ -1,4 +1,3 @@
-console.log('hello');
 //	if somethign is not a property of the tomagatchi it does not go in the tomagatchi class
 //Tomagatchi Class
 class Tomagatchi {
@@ -7,19 +6,32 @@ class Tomagatchi {
 		this.hunger =  1;
 		this.boredom = 1;
 		this.sleepiness = 1;
+		this.name = name
 	}
 };
 
 //Game Play Object
-lifeCycle = {
-	//This should be the insantiation.  It should take the name and create the object.
-	birth(){
-		
+//This should be the insantiation.  It should take the name and create the object.
+const lifeCycle = {
+
+	pet: null, 
+
+	giveBirth: function(name){
+		const jack = new Tomagatchi(name);
+		console.log(jack);
+		this.pet = jack;
+
+		this.startTimer()
+
+	}, 
+
+	startTimer() {
+
+	}
 
 
 
-		//No alert.  It should be a form.
-		// alert("Click To Hatch Your Tamagotchi!")
+} 
 		// //Jack Is Seen On The Screen
 		// // const $img = $('<img id="https://ewscripps.brightspotcdn.com/dims4/default/bb87e62/2147483647/strip/true/crop/1024x576+0+54/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F5b%2F65%2F389afca34a1dbc62ff618428e05d%2Fgettyimages-452924784.jpg"/>')
 		// // $('main').prepend$('img')
@@ -32,7 +44,7 @@ lifeCycle = {
 		
 		//Rules Are Displayed.
 		//name your pet.
-	},
+	
 
 	// setTimer(){
 	// 	//This is should count up.
@@ -59,12 +71,21 @@ lifeCycle = {
 
 	// }
 
-};
 
 //Listeners Object
-  $('#submit-btn').on('click', () => {
+  // $('form').on('submit', () => {
+  //   console.log('clicked');  
+  //   console.log( $('#input-box').val() );
+  //   const name = $('#input-box').val()
+  // });
+
+  $('form').on('submit', (event) => {
+  	event.preventDefault()
     console.log('clicked');  
     console.log( $('#input-box').val() );
+    const name = $('#input-box').val();
+    lifeCycle.giveBirth(name)
+
   });
 
 
