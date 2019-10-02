@@ -6,13 +6,13 @@ nav {
 	display: flex;
 	background-color: Crimson;
 	color: white;
-	width: 623px;
+	width: 685px;
 
 }
 
 img {
-	height: 50%;
-	width: 50%;
+	height: 55%;
+	width: 55%;
 	
 }
 
@@ -22,6 +22,10 @@ img {
 
 #title {
 	flex-grow: 5;
+}
+
+#timer {
+	margin: 2em;
 }
 
 button {

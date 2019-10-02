@@ -13,6 +13,7 @@ class Tomagatchi {
 //Game Play Object
 //This should be the insantiation.  It should take the name and create the object.
 const lifeCycle = {
+	time: 0,
 	pet: null, 
 	giveBirth: function(name){
 		const jack = new Tomagatchi(name);
@@ -20,12 +21,17 @@ const lifeCycle = {
 		this.pet = jack;
 		this.startTimer()
 	}, 
+	//Maybe show jack here?
 
 	startTimer() {
-		setInterval(function(){
-			console.log('Duuuun dun dun dun dun duuuuun duuuun')
+		const $timer = $('#timer');
+		const tomagatchiTime = setInterval(() => {
+			console.log(this.time++);
+			//this.time++ 
+			$timer.text(`TIMER: ${this.time}`)
 		}, 1000)
-	}
+	},
+
 }
 
 //Create an Input to name the pet.
