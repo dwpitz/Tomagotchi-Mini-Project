@@ -2,52 +2,72 @@ console.log('hello');
 //	if somethign is not a property of the tomagatchi it does not go in the tomagatchi class
 //Tomagatchi Class
 class Tomagatchi {
-	constructor(){
-		this.age: 0;
-		this.hunger:  1;
-		this.boredom: 1;
-		this.sleepiness: 1;
-	},
-	name:
-}
+	constructor(name){
+		this.age = 0;
+		this.hunger =  1;
+		this.boredom = 1;
+		this.sleepiness = 1;
+	}
+};
 
 //Game Play Object
-lifeCycle {
+lifeCycle = {
+	//This should be the insantiation.  It should take the name and create the object.
 	birth(){
-		//Jack Is Seen On The Screen
-		//Stats are displayed
-		//Buttons to take care of Jack are displayed
+		
+
+
+
+		//No alert.  It should be a form.
+		// alert("Click To Hatch Your Tamagotchi!")
+		// //Jack Is Seen On The Screen
+		// // const $img = $('<img id="https://ewscripps.brightspotcdn.com/dims4/default/bb87e62/2147483647/strip/true/crop/1024x576+0+54/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F5b%2F65%2F389afca34a1dbc62ff618428e05d%2Fgettyimages-452924784.jpg"/>')
+		// // $('main').prepend$('img')
+		// //Buttons to take care of Jack are displayed
+		// const $div = $('<div></div>').attr('id', 'the-ring')
+  // // 2. add the ring as a child of Frodo
+  // const $frodo = $(".hobbit").get(0)
+  // $($frodo).append($div)
+		
+		
 		//Rules Are Displayed.
 		//name your pet.
 	},
-	setTimer(){
-		//This is should count up.
-		//1 year = 2 mins
-	},
 
-	age(){
+	// setTimer(){
+	// 	//This is should count up.
+	// 	//1 year = 2 mins
+	// },
 
-	},
+	// age(){
 
-	hunger(){
+	// },
 
-	},
+	// hunger(){
 
-	sleepiness(){
+	// },
 
-	},
+	// sleepiness(){
 
-	boredom(){
+	// },
 
-	},
+	// boredom(){
 
-	death(){
+	// },
 
-	}
+	// death(){
 
-}
+	// }
+
+};
 
 //Listeners Object
+  $('#submit-btn').on('click', () => {
+    console.log('clicked');  
+    console.log( $('#input-box').val() );
+  });
+
+
 // 	start(){
 // 		const jack = new Tomagatchi() 
 // 	},
