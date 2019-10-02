@@ -16,7 +16,19 @@ img {
 	
 }
 
-.vitals {
+#age {
+	margin: 2em;
+}
+
+#hunger {
+	margin: 2em;
+}
+
+#sleep {
+	margin: 2em;
+}
+
+#boredom {
 	margin: 2em;
 }
 

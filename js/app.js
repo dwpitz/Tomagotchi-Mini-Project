@@ -3,24 +3,45 @@
 class Tomagatchi {
 	constructor(name){
 		this.age = 0;
-		this.hunger =  1;
-		this.boredom = 1;
-		this.sleepiness = 1;
+		this.hunger =  Math.floor(Math.random()*10);
+		this.boredom = Math.floor(Math.random()*10);
+		this.sleepiness = Math.floor(Math.random()*10);
 		this.name = name
 	}
 };
+
+// for(let i = 0; i < 3; i++){
+//       const random = Math.floor(Math.random()*theDeck.length);
+//       const drawnCard = theDeck.splice(random, 1)[0];
+
 
 //Game Play Object
 //This should be the insantiation.  It should take the name and create the object.
 const lifeCycle = {
 	time: 0,
+	// hunger: function(){
+	// 	const $hunger = $('#hunger')
+	// 	const $level = 	
+	// }
 	pet: null, 
 	giveBirth: function(name){
 		const jack = new Tomagatchi(name);
 		console.log(jack);
 		this.pet = jack;
+		this.printStats()
+	},
+
+	printStats: function(){
+		const $hunger = $('#hunger')
+		$hunger.text(`HUNGER: ${lifeCycle.pet.hunger}`)
+		const $sleep = $('#sleep')
+		$sleep.text(`SLEEP: ${lifeCycle.pet.sleepiness}`)
+		const $boredom = $('#boredom')
+		$boredom.text(`BOREDOM: ${lifeCycle.pet.boredom}`)
 		this.startTimer()
-	}, 
+	},
+
+
 	//Maybe show jack here?
 
 	startTimer() {
@@ -30,7 +51,14 @@ const lifeCycle = {
 			//this.time++ 
 			$timer.text(`TIMER: ${this.time}`)
 		}, 1000)
+		this.age()
 	},
+
+	age(){
+		console.log("this is where we figure out the age");
+	},
+
+
 
 }
 
@@ -55,11 +83,6 @@ const lifeCycle = {
 		//Rules Are Displayed.
 		
 	
-
-	// setTimer(){
-	// 	//This is should count up.
-	// 	//1 year = 2 mins
-	// },
 
 	// age(){
 
