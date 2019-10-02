@@ -6,14 +6,16 @@ class Tomagatchi {
 		this.hunger:  1;
 		this.boredom: 1;
 		this.sleepiness: 1;
-	}
+	},
+	name:
+
 
 }
 
 //timer method - only one interval in the game.  DO NOT have more than one timer.
 const game = {
 	start(){
-
+		new 
 	},
 }
 

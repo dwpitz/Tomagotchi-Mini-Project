@@ -1,3 +1,32 @@
 body {
-	background-color: pink;
+	background-color: white;
 }
+
+nav {
+	display: flex;
+	background-color: Crimson;
+	color: white;
+	width: 623px;
+
+
+
+}
+
+img {
+	height: 50%;
+	width: 50%;
+	
+}
+
+.vitals {
+	margin: 2em;
+}
+
+#title {
+	flex-grow: 5;
+}
+
+button {
+	align-items: center;
+}
+
