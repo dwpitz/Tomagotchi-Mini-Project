@@ -10,19 +10,10 @@ class Tomagatchi {
 	}
 };
 
-// for(let i = 0; i < 3; i++){
-//       const random = Math.floor(Math.random()*theDeck.length);
-//       const drawnCard = theDeck.splice(random, 1)[0];
-
-
 //Game Play Object
 //This should be the insantiation.  It should take the name and create the object.
 const lifeCycle = {
 	time: 0,
-	// hunger: function(){
-	// 	const $hunger = $('#hunger')
-	// 	const $level = 	
-	// }
 	pet: null, 
 	giveBirth: function(name){
 		const jack = new Tomagatchi(name);
@@ -47,22 +38,17 @@ const lifeCycle = {
 		$timer.text(`TIMER: ${this.time}`)
 	},
 
-	//Maybe show jack here?
 	startTimer() {
 		const tomagatchiTime = setInterval(() => {
 			this.time++ 
-			if(this.time % 10 === 0){
+			if(this.time % 20 === 0){
 				this.pet.age++
-				// console.log(this.pet.age)
-			} else if (this.time % 5 === 0){
+			} else if (this.time % 10 === 0){
 				this.pet.hunger++
-				// console.log(this.pet.hunger)
-			} else if (this.time % 3 === 0){
+			} else if (this.time % 6 === 0){
 				this.pet.sleepiness++
-				// console.log(this.pet.sleepiness)
-			} else if (this.time % 2 === 0){
+			} else if (this.time % 5 === 0){
 				this.pet.boredom++
-				// console.log(this.pet.boredome)
 			};
 			if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
 				alert(this.pet.name + " has died!")
@@ -79,7 +65,7 @@ const lifeCycle = {
 	}
 }
 
-//Create an Input to name the pet.
+//Listeners
 $('form').on('submit', (event) => {
   	event.preventDefault()
     const name = $('#input-box').val();
@@ -97,77 +83,3 @@ $('#light').on('click', (event) => {
 $('#play').on('click', (event) => {
 	lifeCycle.pet.boredom--
 });
-		// //Jack Is Seen On The Screen
-		// // const $img = $('<img id="https://ewscripps.brightspotcdn.com/dims4/default/bb87e62/2147483647/strip/true/crop/1024x576+0+54/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F5b%2F65%2F389afca34a1dbc62ff618428e05d%2Fgettyimages-452924784.jpg"/>')
-		// // $('main').prepend$('img')
-		// //Buttons to take care of Jack are displayed
-		// const $div = $('<div></div>').attr('id', 'the-ring')
-  // // 2. add the ring as a child of Frodo
-  // const $frodo = $(".hobbit").get(0)
-  // $($frodo).append($div)
-		
-		
-		//Rules Are Displayed.
-		
-	
-
-	// age(){
-
-	// },
-
-	// hunger(){
-
-	// },
-
-	// sleepiness(){
-
-	// },
-
-	// boredom(){
-
-	// },
-
-	// death(){
-
-	// }
-
-
-//Listeners Object
-  // $('form').on('submit', () => {
-  //   console.log('clicked');  
-  //   console.log( $('#input-box').val() );
-  //   const name = $('#input-box').val()
-  // });
-
-
-
-
-// 	start(){
-// 		const jack = new Tomagatchi() 
-// 	},
-	//setInterval() <== How does this timer work.  Is it counting down?  Counting up?  
-//}
-
-// $().on('click', () => {
-// 	//listeners can be in the global scope
-// }
-// )
-
-//timer method - only one interval in the game.  DO NOT have more than one timer.
-// const game = {
-
-//Rules:
-//When hunger hits 5, you have to feed it.  
-//When sleepiness hits 5, you have to turn out the lights
-//When Boredom hits 5, you have to play with it.  
-//If Hunger hits 10 || Sleepiness hits 10 || Boredom hits 10 <===Tomagatchi dies
-//When age hits
-
-//The Timer:
-//Age = 1 year every 30 secs.
-//hunger = Hungry every 5 secs.
-//sleepiness = sleepy every 15 secs.
-//Boredom = every 10 secs
-
-
-
