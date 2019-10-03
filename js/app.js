@@ -68,6 +68,12 @@ const lifeCycle = {
 				alert(this.pet.name + " has died!")
 				clearInterval(tomagatchiTime);
 			}
+			
+			if(this.pet.hunger >= 7 || this.pet.sleepiness >= 7 || this.pet.boredom >= 7){
+				$("#happy").attr("src","https://static.stereogum.com/uploads/2014/07/sad-jack-white-608x406.jpg");
+			} else {
+				$("#happy").attr("src","https://ewscripps.brightspotcdn.com/dims4/default/bb87e62/2147483647/strip/true/crop/1024x576+0+54/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F5b%2F65%2F389afca34a1dbc62ff618428e05d%2Fgettyimages-452924784.jpg");
+			}
 			this.printStats()
 		}, 1000);
 	}
@@ -85,7 +91,7 @@ $('#food').on('click', (event) => {
 }); 
 
 $('#light').on('click', (event) => {
-	lifeCycle.pet.sleepiness--
+	lifeCycle.pet.sleepiness = lifeCycle.pet.sleepiness - 2
 });
 
 $('#play').on('click', (event) => {
