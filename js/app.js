@@ -73,17 +73,24 @@ const lifeCycle = {
 	}
 }
 
-
 //Create an Input to name the pet.
 $('form').on('submit', (event) => {
   	event.preventDefault()
-    console.log('clicked');  
-    // console.log( $('#input-box').val() );
     const name = $('#input-box').val();
     lifeCycle.giveBirth(name) 
 }); 
 
-$()
+$('#food').on('click', (event) => {
+	lifeCycle.pet.hunger--
+}); 
+
+$('#light').on('click', (event) => {
+	lifeCycle.pet.sleepiness--
+});
+
+$('#play').on('click', (event) => {
+	lifeCycle.pet.boredom--
+});
 		// //Jack Is Seen On The Screen
 		// // const $img = $('<img id="https://ewscripps.brightspotcdn.com/dims4/default/bb87e62/2147483647/strip/true/crop/1024x576+0+54/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F5b%2F65%2F389afca34a1dbc62ff618428e05d%2Fgettyimages-452924784.jpg"/>')
 		// // $('main').prepend$('img')
