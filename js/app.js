@@ -63,6 +63,10 @@ const lifeCycle = {
 			} else if (this.time % 2 === 0){
 				this.pet.boredom++
 				// console.log(this.pet.boredome)
+			};
+			if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
+				alert(this.pet.name + " has died!")
+				clearInterval();
 			}
 			this.printStats()
 		}, 1000);
