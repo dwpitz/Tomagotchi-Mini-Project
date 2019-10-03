@@ -3,9 +3,9 @@
 class Tomagatchi {
 	constructor(name){
 		this.age = 0;
-		this.hunger =  Math.floor(Math.random()*10);
-		this.boredom = Math.floor(Math.random()*10);
-		this.sleepiness = Math.floor(Math.random()*10);
+		this.hunger =  Math.floor(Math.random()*9);
+		this.boredom = Math.floor(Math.random()*9);
+		this.sleepiness = Math.floor(Math.random()*9);
 		this.name = name
 	}
 };
@@ -48,21 +48,27 @@ const lifeCycle = {
 	},
 
 	//Maybe show jack here?
-
 	startTimer() {
-		
 		const tomagatchiTime = setInterval(() => {
-
 			this.time++ 
-
-			if(this.time % 2 === 0){
+			if(this.time % 10 === 0){
 				this.pet.age++
-				console.log(this.pet.age);
+				// console.log(this.pet.age)
+			} else if (this.time % 5 === 0){
+				this.pet.hunger++
+				// console.log(this.pet.hunger)
+			} else if (this.time % 3 === 0){
+				this.pet.sleepiness++
+				// console.log(this.pet.sleepiness)
+			} else if (this.time % 2 === 0){
+				this.pet.boredom++
+				// console.log(this.pet.boredome)
 			}
-
 			this.printStats()
-
 		}, 1000);
+
+
+
 	}
 }
 
@@ -71,7 +77,7 @@ const lifeCycle = {
 $('form').on('submit', (event) => {
   	event.preventDefault()
     console.log('clicked');  
-    console.log( $('#input-box').val() );
+    // console.log( $('#input-box').val() );
     const name = $('#input-box').val();
     lifeCycle.giveBirth(name) 
 }); 
