@@ -66,13 +66,10 @@ const lifeCycle = {
 			};
 			if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
 				alert(this.pet.name + " has died!")
-				clearInterval();
+				clearInterval(tomagatchiTime);
 			}
 			this.printStats()
 		}, 1000);
-
-
-
 	}
 }
 
@@ -85,6 +82,8 @@ $('form').on('submit', (event) => {
     const name = $('#input-box').val();
     lifeCycle.giveBirth(name) 
 }); 
+
+$()
 		// //Jack Is Seen On The Screen
 		// // const $img = $('<img id="https://ewscripps.brightspotcdn.com/dims4/default/bb87e62/2147483647/strip/true/crop/1024x576+0+54/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F5b%2F65%2F389afca34a1dbc62ff618428e05d%2Fgettyimages-452924784.jpg"/>')
 		// // $('main').prepend$('img')
