@@ -6,16 +6,17 @@ nav {
 	display: flex;
 	background-color: Crimson;
 	color: white;
-	width: 710px;
+	width: 715px;
 
 }
 
 img {
 	height: 57%;
 	width: 57%;
+	border-style: dotted;
+	border-color: CornflowerBlue;
 	
 }
-
 
 #age {
 	margin: 2em;
@@ -44,4 +45,3 @@ img {
 button {
 	align-items: center;
 }
-
