@@ -79,7 +79,7 @@ $('#food').on('click', (event) => {
 }); 
 
 $('#light').on('click', (event) => {
-	lifeCycle.pet.sleepiness = lifeCycle.pet.sleepiness--;
+	lifeCycle.pet.sleepiness--;
 	lifeCycle.printStats()
 });
 
