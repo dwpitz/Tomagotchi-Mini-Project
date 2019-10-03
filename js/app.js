@@ -23,7 +23,7 @@ const lifeCycle = {
 		this.printStats()
 	},
 
-	printStats: function(){
+	printStats: function(){ console.log("pprintstats")
 		const $name = $('#title')
 		$name.text(`${this.pet.name}'s Vitals:`)
 		const $age = $('#age')
@@ -40,30 +40,30 @@ const lifeCycle = {
 
 	startTimer() {
 		const tomagatchiTime = setInterval(() => {
-		this.time++ 
-		if(this.time % 20 === 0){
-			this.pet.age++
-		} else if (this.time % 10 === 0){
-			this.pet.hunger++
-		} else if (this.time % 5 === 0){
-			this.pet.sleepiness++
-		} else if (this.time % 2 === 0){
-			this.pet.boredom++
-		};
-			
-		if(this.pet.hunger >= 7 || this.pet.sleepiness >= 7 || this.pet.boredom >= 7){
-			$("#happy").attr("src","images/sad_jack.jpg");
-		} else {
-			$("#happy").attr("src","images/happy_jack.jpg");
-		};
+			this.time++ 
+			if(this.time % 20 === 0){
+				this.pet.age++
+			} else if (this.time % 10 === 0){
+				this.pet.hunger++
+			} else if (this.time % 5 === 0){
+				this.pet.sleepiness++
+			} else if (this.time % 2 === 0){
+				this.pet.boredom++
+			};
 
-		if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
-			clearInterval(tomagatchiTime);
-			$("#happy").attr("src","images/dead.jpg");	
+			if(this.pet.hunger >= 7 || this.pet.sleepiness >= 7 || this.pet.boredom >= 7){
+				$("#happy").attr("src","images/sad_jack.jpg");
+			} else {
+				$("#happy").attr("src","images/happy_jack.jpg");
+			};
+
+			if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
+				clearInterval(tomagatchiTime);
+				$("#happy").attr("src","images/dead.jpg");	
 			}
 			this.printStats()
 		}, 1000);
-	}
+	},
 }
 
 //Listeners
@@ -75,12 +75,15 @@ $('form').on('submit', (event) => {
 
 $('#food').on('click', (event) => {
 	lifeCycle.pet.hunger--
+	lifeCycle.printStats()
 }); 
 
 $('#light').on('click', (event) => {
-	lifeCycle.pet.sleepiness = lifeCycle.pet.sleepiness - 2
+	lifeCycle.pet.sleepiness = lifeCycle.pet.sleepiness--;
+	lifeCycle.printStats()
 });
 
 $('#play').on('click', (event) => {
-	lifeCycle.pet.boredom--
+	lifeCycle.pet.boredom--;
+	lifeCycle.printStats()
 });

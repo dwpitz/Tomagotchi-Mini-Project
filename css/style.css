@@ -14,7 +14,7 @@ img {
 	height: 57%;
 	width: 57%;
 	border-style: dotted;
-	border-color: CornflowerBlue;
+	border-color: darkblue;
 	
 }
 
@@ -45,3 +45,4 @@ img {
 button {
 	align-items: center;
 }
+
