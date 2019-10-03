@@ -27,15 +27,15 @@ const lifeCycle = {
 		const $name = $('#title')
 		$name.text(`${this.pet.name}'s Vitals:`)
 		const $age = $('#age')
-		$age.text(`AGE: ${this.pet.age}`)
+		$age.text(`Age: ${this.pet.age}`)
 		const $hunger = $('#hunger')
-		$hunger.text(`HUNGER: ${this.pet.hunger}`)
+		$hunger.text(`Hunger: ${this.pet.hunger}`)
 		const $sleep = $('#sleep')
-		$sleep.text(`SLEEP: ${this.pet.sleepiness}`)
+		$sleep.text(`Sleep: ${this.pet.sleepiness}`)
 		const $boredom = $('#boredom')
-		$boredom.text(`BOREDOM: ${this.pet.boredom}`)
+		$boredom.text(`Boredom: ${this.pet.boredom}`)
 		const $timer = $('#timer');
-		$timer.text(`TIMER: ${this.time}`)
+		$timer.text(`Timer: ${this.time}`)
 	},
 
 	startTimer() {

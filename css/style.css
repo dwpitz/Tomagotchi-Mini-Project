@@ -34,7 +34,7 @@ img {
 }
 
 #title {
-	flex-grow: 11;
+	margin: 2em;
 }
 
 #timer {
