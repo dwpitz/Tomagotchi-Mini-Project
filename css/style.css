@@ -6,16 +6,16 @@ nav {
 	display: flex;
 	background-color: Crimson;
 	color: white;
-	width: 685px;
-
+	width: 710px;
 
 }
 
 img {
-	height: 55%;
-	width: 55%;
+	height: 57%;
+	width: 57%;
 	
 }
+
 
 #age {
 	margin: 2em;
@@ -34,7 +34,7 @@ img {
 }
 
 #title {
-	flex-grow: 5;
+	flex-grow: 11;
 }
 
 #timer {

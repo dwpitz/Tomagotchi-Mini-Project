@@ -25,7 +25,7 @@ const lifeCycle = {
 
 	printStats: function(){
 		const $name = $('#title')
-		$name.text(`${this.pet.name}'s Vitals`)
+		$name.text(`${this.pet.name}'s Vitals:`)
 		const $age = $('#age')
 		$age.text(`AGE: ${this.pet.age}`)
 		const $hunger = $('#hunger')
@@ -45,20 +45,21 @@ const lifeCycle = {
 				this.pet.age++
 			} else if (this.time % 10 === 0){
 				this.pet.hunger++
-			} else if (this.time % 6 === 0){
-				this.pet.sleepiness++
 			} else if (this.time % 5 === 0){
+				this.pet.sleepiness++
+			} else if (this.time % 2 === 0){
 				this.pet.boredom++
 			};
-			if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
-				alert(this.pet.name + " has died!")
-				clearInterval(tomagatchiTime);
-			}
 			
 			if(this.pet.hunger >= 7 || this.pet.sleepiness >= 7 || this.pet.boredom >= 7){
-				$("#happy").attr("src","https://static.stereogum.com/uploads/2014/07/sad-jack-white-608x406.jpg");
+				$("#happy").attr("src","images/sad_jack.jpg");
 			} else {
-				$("#happy").attr("src","https://ewscripps.brightspotcdn.com/dims4/default/bb87e62/2147483647/strip/true/crop/1024x576+0+54/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2F5b%2F65%2F389afca34a1dbc62ff618428e05d%2Fgettyimages-452924784.jpg");
+				$("#happy").attr("src","images/happy_jack.jpg");
+			};
+
+			if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
+				clearInterval(tomagatchiTime);
+				$("#happy").attr("src","images/dead.jpg");	
 			}
 			this.printStats()
 		}, 1000);
