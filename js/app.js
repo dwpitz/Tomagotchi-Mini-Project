@@ -43,27 +43,38 @@ const lifeCycle = {
 	startTimer() {
 		const tomagatchiTime = setInterval(() => {
 			this.time++ 
-			if(this.time % 20 === 0){
+			if(this.time % 10 === 0){
 				this.pet.age++
-			} else if (this.time % 8 === 0){
+			} else if (this.time % 6 === 0){
 				this.pet.hunger++
-			} else if (this.time % 10 === 0){
-				this.pet.sleepiness++
 			} else if (this.time % 5 === 0){
+				this.pet.sleepiness++
+			} else if (this.time % 3 === 0){
 				this.pet.boredom++
 			};
 
-			if(this.pet.hunger >= 7 || this.pet.sleepiness >= 7 || this.pet.boredom >= 7){
-				$("#happy").attr("src","images/sad_jack.jpg");
-			} else {
-				$("#happy").attr("src","images/happy_jack.jpg");
-			};
+			if(this.time <= 10){
+				$("#happy").attr("src","images/baby_jack.jpg");
+			} else if (this.time >= 10 && this.time <= 20){
+				$("#happy").attr("src","images/Early_White_Stripes.jpg");
+			} else if (this.time >= 20 && this.time <= 30){
+				$("#happy").attr("src","images/jack_solo.jpg");
+			}else if (this.time >= 30 && this.time <= 40){
+				$("#happy").attr("src","images/happy_jack_golden_years.jpg");
+			}
+
+
+			// if(this.pet.hunger >= 7 || this.pet.sleepiness >= 7 || this.pet.boredom >= 7){
+			// 	$("#happy").attr("src","images/sad_jack.jpg");
+			// } else {
+			// 	$("#happy").attr("src","images/happy_jack.jpg");
+			// };
 
 			if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
 				const $wobble = $('img');
 				$wobble.css("animationIterationCount","0");
 				clearInterval(tomagatchiTime);
-				$("#happy").attr("src","images/dead.jpg");	
+				$("#happy").attr("src","images/dead_jack.jpg");	
 			}
 			this.printStats()
 		}, 1000);
