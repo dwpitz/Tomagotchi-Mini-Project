@@ -1,23 +1,20 @@
-//	if somethign is not a property of the tomagatchi it does not go in the tomagatchi class
 //Tomagatchi Class
 class Tomagatchi {
 	constructor(name){
 		this.age = 0;
-		this.hunger =  Math.floor(Math.random()*9);
-		this.boredom = Math.floor(Math.random()*9);
-		this.sleepiness = Math.floor(Math.random()*9);
+		this.hunger =  Math.floor(Math.random()*7);
+		this.boredom = Math.floor(Math.random()*7);
+		this.sleepiness = Math.floor(Math.random()*7);
 		this.name = name
 	}
 };
 
-//Game Play Object
-//This should be the insantiation.  It should take the name and create the object.
+//The Gameplay Object
 const lifeCycle = {
 	time: 0,
 	pet: null, 
 	giveBirth: function(name){
 		const jack = new Tomagatchi(name);
-		console.log(jack);
 		this.pet = jack;
 		this.startTimer()
 		const $wobble = $('img');
@@ -45,11 +42,11 @@ const lifeCycle = {
 			this.time++ 
 			if(this.time % 10 === 0){
 				this.pet.age++
-			} else if (this.time % 6 === 0){
+			} else if (this.time % 3 === 0){
 				this.pet.hunger++
 			} else if (this.time % 5 === 0){
 				this.pet.sleepiness++
-			} else if (this.time % 3 === 0){
+			} else if (this.time % 4 === 0){
 				this.pet.boredom++
 			};
 
@@ -61,21 +58,14 @@ const lifeCycle = {
 				$("#happy").attr("src","images/jack_solo.jpg");
 			}else if (this.time >= 30 && this.time <= 40){
 				$("#happy").attr("src","images/happy_jack_golden_years.jpg");
-			}
-
-
-			// if(this.pet.hunger >= 7 || this.pet.sleepiness >= 7 || this.pet.boredom >= 7){
-			// 	$("#happy").attr("src","images/sad_jack.jpg");
-			// } else {
-			// 	$("#happy").attr("src","images/happy_jack.jpg");
-			// };
+			};
 
 			if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
 				const $wobble = $('img');
 				$wobble.css("animationIterationCount","0");
 				clearInterval(tomagatchiTime);
 				$("#happy").attr("src","images/dead_jack.jpg");	
-			}
+			};
 			this.printStats()
 		}, 1000);
 	},
@@ -83,15 +73,13 @@ const lifeCycle = {
 	feedJack(){
 		lifeCycle.pet.hunger--
 		lifeCycle.printStats()
-		// $("#happy").attr("src","images/jack_drinks.jpg");
 	},
 
 	turnOutTheLights(){
 		lifeCycle.pet.sleepiness--
-		// $("#happy").attr("src","images/sleepy_jack.jpg");
 		const $switch = $('body');
 		console.log($switch);
-		$switch.css("backgroundColor","dimGray ")
+		$switch.css("backgroundColor","black")
 		lifeCycle.pet.sleepiness--;
 		lifeCycle.printStats()
 		this.printStats()
@@ -100,7 +88,6 @@ const lifeCycle = {
 	turnOnTheLights(){
 		const $switch = $('body');
 		$switch.css("backgroundColor","white");
-		// $("#happy").attr("src","images/happy_jack.jpg");
 		this.printStats()
 	},
 
