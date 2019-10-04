@@ -2,9 +2,9 @@
 class Tomagatchi {
 	constructor(name){
 		this.age = 0;
-		this.hunger =  Math.floor(Math.random()*7);
-		this.boredom = Math.floor(Math.random()*7);
-		this.sleepiness = Math.floor(Math.random()*7);
+		this.hunger =  Math.floor(Math.random()*9);
+		this.boredom = Math.floor(Math.random()*9);
+		this.sleepiness = Math.floor(Math.random()*9);
 		this.name = name
 	}
 };
@@ -22,7 +22,7 @@ const lifeCycle = {
 		this.printStats()
 	},
 
-	printStats: function(){ console.log("pprintstats")
+	printStats: function(){
 		const $name = $('#title')
 		$name.text(`${this.pet.name}'s Vitals:`)
 		const $age = $('#age')
@@ -78,7 +78,6 @@ const lifeCycle = {
 	turnOutTheLights(){
 		lifeCycle.pet.sleepiness--
 		const $switch = $('body');
-		console.log($switch);
 		$switch.css("backgroundColor","black")
 		lifeCycle.pet.sleepiness--;
 		lifeCycle.printStats()
