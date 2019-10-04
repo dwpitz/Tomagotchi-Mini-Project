@@ -20,6 +20,8 @@ const lifeCycle = {
 		console.log(jack);
 		this.pet = jack;
 		this.startTimer()
+		const $wobble = $('img');
+		$wobble.css("animationIterationCount","infinite");
 		this.printStats()
 	},
 
@@ -43,11 +45,11 @@ const lifeCycle = {
 			this.time++ 
 			if(this.time % 20 === 0){
 				this.pet.age++
-			} else if (this.time % 10 === 0){
+			} else if (this.time % 8 === 0){
 				this.pet.hunger++
-			} else if (this.time % 5 === 0){
+			} else if (this.time % 10 === 0){
 				this.pet.sleepiness++
-			} else if (this.time % 2 === 0){
+			} else if (this.time % 5 === 0){
 				this.pet.boredom++
 			};
 
@@ -58,12 +60,43 @@ const lifeCycle = {
 			};
 
 			if(this.pet.hunger >= 10 || this.pet.sleepiness >= 10 || this.pet.boredom >= 10){
+				const $wobble = $('img');
+				$wobble.css("animationIterationCount","0");
 				clearInterval(tomagatchiTime);
 				$("#happy").attr("src","images/dead.jpg");	
 			}
 			this.printStats()
 		}, 1000);
 	},
+
+	feedJack(){
+		lifeCycle.pet.hunger--
+		lifeCycle.printStats()
+		// $("#happy").attr("src","images/jack_drinks.jpg");
+	},
+
+	turnOutTheLights(){
+		lifeCycle.pet.sleepiness--
+		// $("#happy").attr("src","images/sleepy_jack.jpg");
+		const $switch = $('body');
+		console.log($switch);
+		$switch.css("backgroundColor","dimGray ")
+		lifeCycle.pet.sleepiness--;
+		lifeCycle.printStats()
+		this.printStats()
+	},
+
+	turnOnTheLights(){
+		const $switch = $('body');
+		$switch.css("backgroundColor","white");
+		// $("#happy").attr("src","images/happy_jack.jpg");
+		this.printStats()
+	},
+
+	playWithJack(){
+		lifeCycle.pet.boredom--;
+		lifeCycle.printStats()
+	}
 }
 
 //Listeners
@@ -74,16 +107,17 @@ $('form').on('submit', (event) => {
 }); 
 
 $('#food').on('click', (event) => {
-	lifeCycle.pet.hunger--
-	lifeCycle.printStats()
+	lifeCycle.feedJack()
 }); 
 
-$('#light').on('click', (event) => {
-	lifeCycle.pet.sleepiness--;
-	lifeCycle.printStats()
+$('#lightOff').on('click', (event) => {
+	lifeCycle.turnOutTheLights()
+});
+
+$('#lightOn').on('click', (event) => {
+	lifeCycle.turnOnTheLights()
 });
 
 $('#play').on('click', (event) => {
-	lifeCycle.pet.boredom--;
-	lifeCycle.printStats()
+	lifeCycle.playWithJack()
 });
